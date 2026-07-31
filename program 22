@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int b[5]={100,500,200,300,600};
+    int p[4]={212,417,112,426};
+    int i,j,best;
+
+    for(i=0;i<4;i++) {
+        best=-1;
+        for(j=0;j<5;j++)
+            if(b[j]>=p[i] && (best==-1 || b[j]<b[best]))
+                best=j;
+
+        if(best!=-1) {
+            printf("P%d -> B%d\n",i+1,best+1);
+            b[best]-=p[i];
+        } else
+            printf("P%d -> Not Allocated\n",i+1);
+    }
+    return 0;
+}
