@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, r[50], head, i, seek=0;
+
+    printf("Enter number of requests: ");
+    scanf("%d",&n);
+
+    printf("Enter requests: ");
+    for(i=0;i<n;i++) scanf("%d",&r[i]);
+
+    printf("Enter initial head: ");
+    scanf("%d",&head);
+
+    for(i=0;i<n;i++) {
+        seek += abs(head-r[i]);
+        head = r[i];
+    }
+
+    printf("Total Seek Time = %d\n",seek);
+    return 0;
+}
